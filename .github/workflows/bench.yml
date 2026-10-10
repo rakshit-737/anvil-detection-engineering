@@ -64,7 +64,7 @@ jobs:
           print("live emulation:", n.get("live_emulation"))
           assert n.get("live_emulation") and n["live_emulation"]["events"] > 0
           PY
-      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: always()
         with:
           name: bench-results
@@ -111,7 +111,7 @@ jobs:
           test "$(docker inspect -f '{{.RestartCount}}' os)" = 0
           test "$(docker inspect -f '{{.State.Status}}' os)" = running
           ! grep -q 'java.lang.OutOfMemoryError' opensearch.log
-      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: always()
         with:
           name: backend-results
@@ -161,7 +161,7 @@ jobs:
         run: |
           python -m playwright install --with-deps chromium
           python scripts/screenshot_dashboard.py docs/dashboard.html docs/img/dashboard.png
-      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: results
           path: |
